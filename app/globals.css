@@ -1,0 +1,169 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-space-grotesk: 'Space Grotesk', sans-serif;
+  --font-sora: 'Sora', sans-serif;
+}
+
+body {
+  background-color: #030303;
+  color: #F8FAFC;
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+}
+
+/* Chrome Shimmer Text */
+.text-chrome {
+  background: linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 35%, #94A3B8 70%, #CBD5E1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+.text-chrome-silver {
+  background: linear-gradient(135deg, #FFFFFF 0%, #CBD5E1 50%, #64748B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism Cards */
+.glass-panel {
+  background: rgba(18, 18, 22, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+.glass-panel-interactive {
+  background: rgba(18, 18, 22, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-interactive:hover {
+  background: rgba(26, 26, 32, 0.85);
+  border-color: rgba(226, 232, 240, 0.4);
+  box-shadow: 0 0 30px rgba(192, 192, 192, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Chrome Metallic Button */
+.btn-chrome {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 40%, #94A3B8 80%, #CBD5E1 100%);
+  color: #030303;
+  font-weight: 700;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+}
+
+.btn-chrome:hover {
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+  transform: scale(1.02);
+}
+
+.btn-chrome-outline {
+  background: transparent;
+  color: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.4);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.btn-chrome-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #FFFFFF;
+  box-shadow: 0 0 25px rgba(192, 192, 192, 0.3);
+}
+
+/* Custom Chrome Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030303;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Chrome Metallic Border Shimmer */
+@keyframes borderShimmer {
+  0% { border-color: rgba(255, 255, 255, 0.12); }
+  50% { border-color: rgba(226, 232, 240, 0.5); }
+  100% { border-color: rgba(255, 255, 255, 0.12); }
+}
+
+.animate-border-shimmer {
+  animation: borderShimmer 4s infinite ease-in-out;
+}
+
+/* Pulse Glow */
+@keyframes pulseGlowAnim {
+  0%, 100% { box-shadow: 0 0 15px rgba(192, 192, 192, 0.15); }
+  50% { box-shadow: 0 0 35px rgba(255, 255, 255, 0.35); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlowAnim 2.5s ease-in-out infinite;
+}
+
+/* Mobile-first global compact overrides */
+@media (max-width: 639px) {
+
+  /* Reduce all page section vertical padding */
+  main > div,
+  main > section {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  /* Tighten glass-panel internal padding */
+  .glass-panel {
+    padding: 0.875rem !important;
+  }
+
+  /* Smaller border-radius on mobile for compact look */
+  .btn-chrome,
+  .btn-chrome-outline {
+    border-radius: 10px;
+    padding: 0.5rem 0.875rem;
+    font-size: 0.7rem;
+  }
+
+  /* Shrink page h1 headings */
+  h1.font-heading {
+    font-size: 1.4rem !important;
+    line-height: 1.2 !important;
+  }
+
+  h2.font-heading {
+    font-size: 1.1rem !important;
+    line-height: 1.25 !important;
+  }
+
+  h3.font-heading {
+    font-size: 0.9rem !important;
+  }
+
+  /* Reduce scrollbar to 4px on mobile */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+}
